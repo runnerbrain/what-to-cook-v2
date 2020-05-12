@@ -1,24 +1,47 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import Home from './Home';
+import SearchForm from './SearchForm';
 import './App.css';
+import './whatToCook.png';
 
-function App() {
+const App = () => {
+  const handleSearch = () => {
+    console.log('handling search since 2020');
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route
+            exact
+            path="/search"
+            render={(props) => (
+              <SearchForm {...props} onSearch={handleSearch} />
+            )}
+          />
+          <Route exact path="/recipes">
+            <Recipes />
+          </Route>
+
+          <button>talk to me</button>
+        </Switch>
+      </div>
+    </Router>
+  );
+};
+
+function Recipes() {
+  return (
+    <div>
+      <h1>list of recipes here</h1>;
+      <Link to="/">
+        <button className="cta">Home</button>
+      </Link>
     </div>
   );
 }
