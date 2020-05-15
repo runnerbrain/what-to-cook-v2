@@ -10,7 +10,21 @@ const SearchForm = () => {
     'advanced-icon-down'
   );
   const [advanced, setAdvanced] = useState('hide-advanced');
-  const [cuisineQuery, setCuisineQuery] = useState('');
+  const [advancedParams, setAdvancedParams] = useState({});
+
+  const handleInputChange = (event) => {
+    const { name, value, checked, type } = event.target;
+    switch (type) {
+      case 'select-one':
+        console.log('you selected ' + [name]);
+        break;
+      case 'checkbox':
+        console.log('you selected ' + [name]);
+        break;
+      default:
+        break;
+    }
+  };
 
   const handleAdvanced = () => {
     console.log('clicked arrow');
@@ -38,8 +52,9 @@ const SearchForm = () => {
         <div className="advanced-row">
           <select
             className="custom-select"
-            name={cuisineQuery}
+            name="cuisine"
             id="inputGroupSelect01"
+            onChange={handleInputChange}
           >
             <option value="">Cuisine ...</option>
             <option value="african">African</option>
@@ -73,26 +88,52 @@ const SearchForm = () => {
             Diet
           </label>
           <div className="diet-cb">
-            <label htmlFor="dairy">Vegetarian</label>
-            <input id="dairy" type="checkbox" name="dairyIntolerance" />
+            <label htmlFor="vegetarian">Vegetarian</label>
+            <input
+              id="vegetarian"
+              type="checkbox"
+              name="vegetarian"
+              onChange={handleInputChange}
+            />
           </div>
           <div className="diet-cb">
-            <label htmlFor="dairy">Vegan</label>
-            <input id="dairy" type="checkbox" name="dairyIntolerance" />
+            <label htmlFor="vegan">Vegan</label>
+            <input
+              id="vegan"
+              type="checkbox"
+              name="vegan"
+              onChange={handleInputChange}
+            />
           </div>
           <div className="diet-cb">
-            <label htmlFor="dairy">Pesectarian</label>
-            <input id="dairy" type="checkbox" name="dairyIntolerance" />
+            <label htmlFor="pesectarian">Pesectarian</label>
+            <input
+              id="pesectarian"
+              type="checkbox"
+              name="pesectarian"
+              onChange={handleInputChange}
+            />
           </div>
           <div className="diet-cb large">
-            <label htmlFor="dairy">Lacto Vegetarian</label>
-            <input id="dairy" type="checkbox" name="dairyIntolerance" />
+            <label htmlFor="lactoVegetarian">Lacto Vegetarian</label>
+            <input
+              id="lactoVegetarian"
+              type="checkbox"
+              name="lactoVegetarian"
+              onChange={handleInputChange}
+            />
           </div>
           <div className="diet-cb">
-            <label htmlFor="dairy">Gluten free</label>
-            <input id="dairy" type="checkbox" name="dairyIntolerance" />
+            <label htmlFor="glutenFree">Gluten free</label>
+            <input
+              id="glutenFree"
+              type="checkbox"
+              name="glutenFree"
+              onChange={handleInputChange}
+            />
           </div>
         </div>
+
         <div className="advanced-row intolerances">
           <label className="intolerances-label" id="intolerance-label">
             Intolerances
@@ -100,39 +141,84 @@ const SearchForm = () => {
 
           <div className="intolerance-cb">
             <label htmlFor="dairy">Dairy</label>
-            <input id="dairy" type="checkbox" name="dairyIntolerance" />
+            <input
+              id="dairy"
+              type="checkbox"
+              name="dairy"
+              onChange={handleInputChange}
+            />
           </div>
           <div className="intolerance-cb">
             <label htmlFor="wheat">Wheat</label>
-            <input id="wheat" type="checkbox" name="wheatIntolerance" />
+            <input
+              id="wheat"
+              type="checkbox"
+              name="wheat"
+              onChange={handleInputChange}
+            />
           </div>
           <div className="intolerance-cb">
             <label htmlFor="egg">Egg</label>
-            <input id="egg" type="checkbox" name="eggIntolerance" />
+            <input
+              id="egg"
+              type="checkbox"
+              name="egg"
+              onChange={handleInputChange}
+            />
           </div>
           <div className="intolerance-cb">
             <label htmlFor="gluten">Gluten</label>
-            <input name="glutenIntolerance" id="gluten" type="checkbox" />
+            <input
+              name="gluten"
+              id="gluten"
+              type="checkbox"
+              onChange={handleInputChange}
+            />
           </div>
           <div className="intolerance-cb">
             <label htmlFor="peanut">Peanut</label>
-            <input name="peanutIntolerance" id="peanut" type="checkbox" />
+            <input
+              name="peanut"
+              id="peanut"
+              type="checkbox"
+              onChange={handleInputChange}
+            />
           </div>
           <div className="intolerance-cb">
             <label htmlFor="sesame">Sesame</label>
-            <input name="sesameQuery" id="sesame" type="checkbox" />
+            <input
+              name="sesame"
+              id="sesame"
+              type="checkbox"
+              onChange={handleInputChange}
+            />
           </div>
           <div className="intolerance-cb">
             <label htmlFor="shellfish">Shellfish</label>
-            <input name="shellfishQuery" id="shellfish" type="checkbox" />
+            <input
+              name="shellfish"
+              id="shellfish"
+              type="checkbox"
+              onChange={handleInputChange}
+            />
           </div>
           <div className="intolerance-cb">
             <label htmlFor="soy">Soy</label>
-            <input name="soyQuery" id="soy" type="checkbox" />
+            <input
+              name="soy"
+              id="soy"
+              type="checkbox"
+              onChange={handleInputChange}
+            />
           </div>
           <div className="intolerance-cb">
             <label htmlFor="sulfite">Sulfite</label>
-            <input name="sulfiteQuery" id="sulfite" type="checkbox" />
+            <input
+              name="sulfite"
+              id="sulfite"
+              type="checkbox"
+              onChange={handleInputChange}
+            />
           </div>
         </div>
       </div>
