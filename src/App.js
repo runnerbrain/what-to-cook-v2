@@ -2,12 +2,14 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Home from './Home';
 import SearchForm from './SearchForm';
+import Recipes from './Recipes';
 import './App.css';
 import './whatToCook.png';
 
 const App = () => {
-  const handleSearch = () => {
-    console.log('handling search since 2020');
+  const handleSearch = (queryObj) => {
+    console.log('From App');
+    console.log(queryObj);
   };
 
   return (
@@ -21,12 +23,10 @@ const App = () => {
             exact
             path="/search"
             render={(props) => (
-              <SearchForm {...props} onSearch={handleSearch} />
+              <SearchForm {...props} onSearchClick={handleSearch} />
             )}
           />
-          <Route exact path="/recipes">
-            <Recipes />
-          </Route>
+          <Route exact path="/recipes" render={(props) => Recipes} />
 
           <button>talk to me</button>
         </Switch>
@@ -34,16 +34,5 @@ const App = () => {
     </Router>
   );
 };
-
-function Recipes() {
-  return (
-    <div>
-      <h1>list of recipes here</h1>;
-      <Link to="/">
-        <button className="cta">Home</button>
-      </Link>
-    </div>
-  );
-}
 
 export default App;
