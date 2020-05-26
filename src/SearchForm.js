@@ -23,7 +23,7 @@ const SearchForm = ({ onSearchClick }) => {
         break;
       case 'checkbox':
         switch (className) {
-          case 'diet': {
+          case 'diet-cb': {
             checked
               ? setQueryObj({
                   ...queryObj,
@@ -36,7 +36,7 @@ const SearchForm = ({ onSearchClick }) => {
 
             break;
           }
-          case 'intolerance': {
+          case 'intolerance-cb': {
             checked
               ? setQueryObj({
                   ...queryObj,
@@ -119,8 +119,8 @@ const SearchForm = ({ onSearchClick }) => {
         <div className="advanced-row">
           <select
             className="custom-select"
-            name="type"
-            id="inputGroupSelect01"
+            name="cuisine"
+            id="inputGroupSelect02"
             onChange={handleInputChange}
           >
             <option value="">Cuisine ...</option>
@@ -217,7 +217,7 @@ const SearchForm = ({ onSearchClick }) => {
               id="dairy"
               type="checkbox"
               name="dairy"
-              className="intolerance"
+              className="intolerance-cb"
               onChange={handleInputChange}
             />
           </div>
@@ -227,7 +227,7 @@ const SearchForm = ({ onSearchClick }) => {
               id="wheat"
               type="checkbox"
               name="wheat"
-              className="intolerance"
+              className="intolerance-cb"
               onChange={handleInputChange}
             />
           </div>
@@ -237,7 +237,7 @@ const SearchForm = ({ onSearchClick }) => {
               id="egg"
               type="checkbox"
               name="egg"
-              className="intolerance"
+              className="intolerance-cb"
               onChange={handleInputChange}
             />
           </div>
@@ -247,7 +247,7 @@ const SearchForm = ({ onSearchClick }) => {
               name="gluten"
               id="gluten"
               type="checkbox"
-              className="intolerance"
+              className="intolerance-cb"
               onChange={handleInputChange}
             />
           </div>
@@ -257,7 +257,7 @@ const SearchForm = ({ onSearchClick }) => {
               name="peanut"
               id="peanut"
               type="checkbox"
-              className="intolerance"
+              className="intolerance-cb"
               onChange={handleInputChange}
             />
           </div>
@@ -267,7 +267,7 @@ const SearchForm = ({ onSearchClick }) => {
               name="sesame"
               id="sesame"
               type="checkbox"
-              className="intolerance"
+              className="intolerance-cb"
               onChange={handleInputChange}
             />
           </div>
@@ -277,7 +277,7 @@ const SearchForm = ({ onSearchClick }) => {
               name="shellfish"
               id="shellfish"
               type="checkbox"
-              className="intolerance"
+              className="intolerance-cb"
               onChange={handleInputChange}
             />
           </div>
@@ -287,7 +287,7 @@ const SearchForm = ({ onSearchClick }) => {
               name="soy"
               id="soy"
               type="checkbox"
-              className="intolerance"
+              className="intolerance-cb"
               onChange={handleInputChange}
             />
           </div>
@@ -297,7 +297,7 @@ const SearchForm = ({ onSearchClick }) => {
               name="sulfite"
               id="sulfite"
               type="checkbox"
-              className="intolerance"
+              className="intolerance-cb"
               onChange={handleInputChange}
             />
           </div>

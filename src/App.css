@@ -141,7 +141,8 @@ button:focus {
   width: 150px;
 }
 
-#inputGroupSelect01 {
+#inputGroupSelect01,
+#inputGroupSelect02 {
   width: 160px;
 }
 
