@@ -141,6 +141,8 @@ button:focus {
   width: 150px;
 }
 
+
+
 #inputGroupSelect01,
 #inputGroupSelect02 {
   width: 160px;
@@ -178,7 +180,6 @@ button:focus {
 .diet-cb {
   display: flex;
   padding: 2px 16px;
-  /* width: auto; */
   white-space: nowrap;
   background: none;
   color: #8d602f;
@@ -223,4 +224,8 @@ button:focus {
   font-weight: 600;
   letter-spacing: 2px;
   color: #8d602f;
+}
+
+.recipes {
+  color: white;
 }

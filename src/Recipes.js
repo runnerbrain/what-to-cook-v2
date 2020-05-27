@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const URL = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search`;
-
 const Recipes = ({ queryObj }) => {
-  const [data, setData] = useState({ recipesList: [] });
+  const [recipes, setRecipes] = useState([]);
 
   const makeStringFromObject = (queryObj) => {
     let paramKeys = Object.keys(queryObj);
@@ -30,26 +29,38 @@ const Recipes = ({ queryObj }) => {
     }); //end of forEach for main Object
     console.log(queryParamsArr.join('&'));
     console.log(encodeURI(queryParamsArr.join('&')));
+    return encodeURI(queryParamsArr.join('&'));
   };
 
   useEffect(() => {
-    makeStringFromObject(queryObj);
+    let queryString = makeStringFromObject(queryObj);
+    let URLWithQuery = `${URL}?${queryString}`;
+    // console.log(URLWithQuery);
     const fetchRecipes = async () => {
-      const res = await fetch(URL, {
+      const res = await fetch(URLWithQuery, {
         headers: {
           'Content-type': 'application/json',
           'x-rapidapi-key':
             '0a3bdef1efmshc66285758524db9p18f72bjsnbff71681737a',
         },
       });
-      setData(res.data);
+      const result = await res.json();
+      console.log(result.results.length);
+      setRecipes(result.results);
     };
     fetchRecipes();
   }, []);
 
   return (
-    <div>
+    <div className="recipes">
       <h1>Recipes...get your recipes here...</h1>
+      <ul>
+        {recipes.map((recipe) => (
+          <li key={recipe.id}>
+            <h4>{recipe.title}</h4>
+          </li>
+        ))}
+      </ul>
 
       <Link to="/">
         <button className="cta">Home</button>

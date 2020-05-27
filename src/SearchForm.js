@@ -59,11 +59,12 @@ const SearchForm = ({ onSearchClick }) => {
 
   const searchClicked = (e) => {
     console.log(queryObj);
+    queryObj.number = 5;
+    queryObj.offset = 0;
     onSearchClick(queryObj);
   };
 
   const handleAdvanced = () => {
-    console.log('clicked arrow');
     if (!formVisible) {
       setFormVisible(true);
       setAdvanced('show-advanced');
