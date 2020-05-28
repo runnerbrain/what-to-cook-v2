@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Recipe from './Recipe';
 
 const URL = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search`;
 const Recipes = ({ queryObj }) => {
@@ -53,17 +54,15 @@ const Recipes = ({ queryObj }) => {
 
   return (
     <div className="recipes">
-      <h1>Recipes...get your recipes here...</h1>
-      <ul>
-        {recipes.map((recipe) => (
-          <li key={recipe.id}>
-            <h4>{recipe.title}</h4>
-          </li>
-        ))}
-      </ul>
+      <h1>Recipes</h1>
+      {recipes.map((recipe) => (
+        <ul>
+          <Recipe recipe={recipe} />
+        </ul>
+      ))}
 
-      <Link to="/">
-        <button className="cta">Home</button>
+      <Link to="/search">
+        <button className="cta">Search Again</button>
       </Link>
     </div>
   );

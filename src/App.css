@@ -38,6 +38,11 @@ body {
   }
 }
 
+.App {
+  margin: 3rem auto;
+
+}
+
 .opening-line {
   margin-top: 50px;
   font-size: 16px;
@@ -60,15 +65,21 @@ img {
 
 .cta {
   background: #83490c;
-  border: 1px solid whitesmoke;
+  font-family: Arial, sans-serif;
+  border: 1px solid #997b5a;
   margin-top: 50px;
   border-radius: 20px;
   padding: 10px 60px;
-  letter-spacing: 3px;
+  letter-spacing: 4px;
+
 }
 
-button:focus {
+.cta:focus {
   outline: 0;
+}
+
+.cta:hover {
+  background: #965107;
 }
 
 .searchForm {
@@ -227,5 +238,50 @@ button:focus {
 }
 
 .recipes {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   color: white;
+  max-width: 960px;
+  ;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+.recipe-card {
+  display: grid;
+  grid-template-columns: repeat(5, 150px);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 20px;
+
+  /* height: auto; */
+  /* margin: 10px; */
+  background: #b1793d;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+
+.recipe-title {
+  grid-column: 1/4;
+  grid-row: 1/2
+}
+
+img {
+  grid-column: 4/7;
+  grid-row: 1/4;
+  object-fit: cover;
+  width: 350px;
+  height: 263px;
+  border-radius: 5px;
+}
+
+.recipe-info {
+  grid-column: 1/4;
+  grid-row: 2/3;
 }

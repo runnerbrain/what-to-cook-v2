@@ -8,10 +8,10 @@ export default function Home() {
       <div className="opening-line">
         <h1>
           Get quick ideas for recipes & ingredients to cook a delicious meal and
-          stay Inspired!!!
+          stay Inspired
         </h1>
         <Link to="/search">
-          <button className="cta">Go</button>
+          <button className="cta">Start Cooking</button>
         </Link>
       </div>
     </div>
