@@ -55,12 +55,13 @@ const Recipes = ({ queryObj }) => {
   return (
     <div className="recipes">
       <h1>Recipes</h1>
-      {recipes.map((recipe) => (
-        <ul>
-          <Recipe recipe={recipe} />
-        </ul>
-      ))}
-
+      <ul>
+        {recipes.map((recipe) => (
+          <li>
+            <Recipe recipe={recipe} />
+          </li>
+        ))}
+      </ul>
       <Link to="/search">
         <button className="cta">Search Again</button>
       </Link>

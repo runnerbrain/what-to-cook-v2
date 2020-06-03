@@ -98,28 +98,6 @@ const SearchForm = ({ onSearchClick }) => {
         <div className="advanced-row">
           <select
             className="custom-select"
-            name="type"
-            id="inputGroupSelect01"
-            onChange={handleInputChange}
-          >
-            <option value="">Type ...</option>
-            <option value="main course">Main course</option>
-            <option value="side dish">Side dish</option>
-            <option value="dessert">Dessert</option>
-            <option value="appetizer">Appetizer</option>
-            <option value="salad">Salad</option>
-            <option value="bread">Bread</option>
-            <option value="breakfast">Breakfast</option>
-            <option value="soup">Soup</option>
-            <option value="beverage">Beverage</option>
-            <option value="sauce">Sauce</option>
-            <option value="drink">Drink</option>
-          </select>
-        </div>
-
-        <div className="advanced-row">
-          <select
-            className="custom-select"
             name="cuisine"
             id="inputGroupSelect02"
             onChange={handleInputChange}
@@ -149,6 +127,27 @@ const SearchForm = ({ onSearchClick }) => {
             <option value="eastern european">Eastern European</option>
             <option value="caribbean">Caribbean</option>
             <option value="latin american">Latin American</option>
+          </select>
+        </div>
+        <div className="advanced-row">
+          <select
+            className="custom-select"
+            name="type"
+            id="inputGroupSelect01"
+            onChange={handleInputChange}
+          >
+            <option value="">Type ...</option>
+            <option value="main course">Main course</option>
+            <option value="side dish">Side dish</option>
+            <option value="dessert">Dessert</option>
+            <option value="appetizer">Appetizer</option>
+            <option value="salad">Salad</option>
+            <option value="bread">Bread</option>
+            <option value="breakfast">Breakfast</option>
+            <option value="soup">Soup</option>
+            <option value="beverage">Beverage</option>
+            <option value="sauce">Sauce</option>
+            <option value="drink">Drink</option>
           </select>
         </div>
         <div className="advanced-row diet">
