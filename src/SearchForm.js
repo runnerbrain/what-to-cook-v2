@@ -10,11 +10,6 @@ import { FaAngleDoubleDown, FaAngleDoubleUp } from 'react-icons/fa';
 import 'bootstrap/dist/css/bootstrap.css';
 
 const SearchForm = ({ onSearchClick }) => {
-  // const [formVisible, setFormVisible] = useState(false);
-  const [advancedIconToggle, setAdvancedIconToggle] = useState(
-    'advanced-icon-down'
-  );
-  // const [advanced, setAdvanced] = useState('hide-advanced');
   const [queryObj, setQueryObj] = useState({});
 
   const handleInputChange = (event) => {
@@ -69,18 +64,6 @@ const SearchForm = ({ onSearchClick }) => {
     onSearchClick(queryObj);
   };
 
-  // const handleAdvanced = () => {
-  //   if (!formVisible) {
-  //     setFormVisible(true);
-  //     setAdvanced('show-advanced');
-  //     setAdvancedIconToggle('advanced-icon-up');
-  //   } else {
-  //     setFormVisible(false);
-  //     setAdvanced('hide-advanced');
-  //     setAdvancedIconToggle('advanced-icon-down');
-  //   }
-  // };
-
   return (
     <form className="searchForm">
       <div className="searchFieldWrapper">
@@ -96,6 +79,7 @@ const SearchForm = ({ onSearchClick }) => {
           </button>
         </Link>
       </div>
+
       <Toggle>
         {([toggled, toggle, transition, iconTransition]) => (
           <Fragment>
@@ -104,23 +88,23 @@ const SearchForm = ({ onSearchClick }) => {
               {iconTransition.map(({ item, key, props }) =>
                 item ? (
                   <animated.div style={props}>
-                    <FaAngleDoubleUp size={24} className={advancedIconToggle} />
+                    <FaAngleDoubleUp size={24} />
                   </animated.div>
                 ) : (
                   <animated.div style={props}>
-                    <FaAngleDoubleDown
-                      size={24}
-                      className={advancedIconToggle}
-                    />
+                    <FaAngleDoubleDown size={24} />
                   </animated.div>
                 )
               )}
-              <FaAngleDoubleDown />
             </Link>
             {transition.map(
               ({ item, key, props }) =>
                 item && (
-                  <animated.div key={key} style={props}>
+                  <animated.div
+                    key={key}
+                    style={props}
+                    className="show-advanced"
+                  >
                     <div className="advanced-row">
                       <select
                         className="custom-select"

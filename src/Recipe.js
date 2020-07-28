@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Children } from 'react';
+import Modal from './Modal';
 import { Link } from 'react-router-dom';
+
 import { FaClock, FaUsers, FaLink } from 'react-icons/fa';
 
 const IMAGE_URL = 'https://spoonacular.com/recipeImages/';
@@ -24,9 +26,10 @@ const Recipe = ({ recipe }) => {
         </div>
       </div>
       <div className="details">
-        <Link to="/details">
+        <Modal>something to say</Modal>
+        {/* <Link to="/details">
           <button className="cta-details">Details</button>
-        </Link>
+        </Link> */}
       </div>
     </div>
   );

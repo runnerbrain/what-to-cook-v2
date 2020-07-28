@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Recipe from './Recipe';
+import Modal from './Modal';
 
 const URL = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search`;
 const Recipes = ({ queryObj }) => {
@@ -33,34 +34,35 @@ const Recipes = ({ queryObj }) => {
     return encodeURI(queryParamsArr.join('&'));
   };
 
-  useEffect(() => {
-    let queryString = makeStringFromObject(queryObj);
-    let URLWithQuery = `${URL}?${queryString}`;
-    // console.log(URLWithQuery);
-    const fetchRecipes = async () => {
-      const res = await fetch(URLWithQuery, {
-        headers: {
-          'Content-type': 'application/json',
-          'x-rapidapi-key':
-            '0a3bdef1efmshc66285758524db9p18f72bjsnbff71681737a',
-        },
-      });
-      const result = await res.json();
-      console.log(result.results.length);
-      setRecipes(result.results);
-    };
-    fetchRecipes();
-  }, []);
-
+  // useEffect(() => {
+  //   let queryString = makeStringFromObject(queryObj);
+  //   let URLWithQuery = `${URL}?${queryString}`;
+  //   // console.log(URLWithQuery);
+  //   const fetchRecipes = async () => {
+  //     const res = await fetch(URLWithQuery, {
+  //       headers: {
+  //         'Content-type': 'application/json',
+  //         'x-rapidapi-key':
+  //           '0a3bdef1efmshc66285758524db9p18f72bjsnbff71681737a',
+  //       },
+  //     });
+  //     const result = await res.json();
+  //     console.log(result.results.length);
+  //     setRecipes(result.results);
+  //   };
+  //   fetchRecipes();
+  // }, []);
+  //uncomment from 37 to 54
   return (
     <div className="recipes">
       <h1>Recipes</h1>
       <ul>
-        {recipes.map((recipe) => (
+        <Modal>something to show</Modal>
+        {/* {recipes.map((recipe) => (
           <li>
             <Recipe recipe={recipe} />
           </li>
-        ))}
+        ))}  uncomment from 61 to 65 */}
       </ul>
       <Link to="/search">
         <button className="cta">Search Again</button>

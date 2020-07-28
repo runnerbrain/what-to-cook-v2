@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Home from './Home';
 import SearchForm from './SearchForm';
 import Recipes from './Recipes';
+import Modal from './Modal';
 import './App.css';
 import './whatToCook.png';
 
@@ -34,8 +35,11 @@ const App = () => {
             path="/recipes"
             render={(props) => <Recipes {...props} queryObj={queryObj} />}
           />
-
-          <button>talk to me</button>
+          {/* <Route
+            exact
+            path="/details"
+            render={(props) => <Modal {...props} queryObj={queryObj} />}
+          /> */}
         </Switch>
       </div>
     </Router>
